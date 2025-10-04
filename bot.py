@@ -6,24 +6,19 @@ bot = telebot.TeleBot("7440348278:AAEvzwgiuoHSTwCWk-0KAgGKE28t-pnkjr0")
     
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Привет! Я твой Telegram бот. Напиши что-нибудь!")
+    bot.reply_to(message, "Привет, я бот который ставит таймер на чай ееее")
     
 
 @bot.message_handler(commands=['hello'])
 def send_hello(message):
-    bot.reply_to(message, "Привет! Как дела?")
+    bot.reply_to(message, "Поздоровались уже брух")
 
 @bot.message_handler(commands=['bye'])
 def send_bye(message):
-    bot.reply_to(message, "Пока! Удачи!")
+    bot.reply_to(message, "давай давай иди чай пить")
 
 
-# @bot.message_handler(func=lambda message: True)
-# def echo_all(message):
-#     if message.text == 'пароль':
-#         bot.reply_to(message, gen_pass(10))
-#     else:
-#         bot.reply_to(message, message.text)
+
 
 bot.delete_my_commands(scope=None, language_code=None)
 
@@ -32,8 +27,7 @@ bot.set_my_commands(
         telebot.types.BotCommand("set", "'чай поставьте' ахх таймер"),
         telebot.types.BotCommand("unset", "убери таймер >:<")
     ],
-    # scope=telebot.types.BotCommandScopeChat(12345678)  # use for personal command for users
-    # scope=telebot.types.BotCommandScopeAllPrivateChats()  # use for all private chats
+    
 )
 
 # check command
@@ -68,9 +62,6 @@ if __name__ == '__main__':
         time.sleep(1)
 
 
-@bot.message_handler(commands=['coin'])
-def send_coin(message):
-    result = random.choice(["орел", "решка"])
-    bot.reply_to(message, result)
+
 
 bot.polling()
